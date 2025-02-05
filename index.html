@@ -1,50 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ProgramMaster</title>
-        <link rel="stylesheet" href="stylesheet.css" />
-    </head>
-    <body>
-        <div class="sidebar">
-            <h2>ProgramMaster</h2>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProgramMaster</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>ProgramMaster</h2>
+        <div class="input-bar">
+            <input id="userInput" placeholder="Search..."></input>
+        </div>
+        <div class="language-selector">
+            <h3>Choisissez une catégorie</h3>
+            <select id="category">
+                <option value="frontend">Frontend</option>
+                <option value="backend">Backend</option>
+                <option value="datascience">Data Science</option>
+            </select>
+            <h3>Choisissez un langage</h3>
+            <select id="language">
+            </select>
+        </div>
+        <div class="new-chat">New Chat</div>
+    </div>
+    <div class="chat-container">
+        <div class="chat">
+        </div>
+        <div class="input-box">
+            <h1>Posez votre question</h1>
             <div class="input-bar">
-            	<input id="userInput" placeholder="Search..."></input>
-                </div>
-            <div class="language-selector">
-                <h3>Choisissez une catégorie</h3>
-                <select>
-                    <option>Frontend</option>
-                    <option>Backend</option>
-                    <option>Data Science</option>
-                </select>
-                <h3>Choisissez un langage</h3>
-                <select>
-                    <option>Python</option>
-                    <option>JavaScript</option>
-                    <option>PHP</option>
-                    <option>Java</option>
-                    <option>C++</option>
-                </select>
-            </div>
-            <div class="new-chat">New Chat</div>
-        </div>
-        <div class="chat-container">
-        	<div class="chat">
-        	</div>
-            <div class="input-box">
-                <h1>Posez votre question</h1>
-                <div class="input-bar">
-                    <input
-                    	id="question"
-                        type="text"
-                        placeholder="Posez votre question ici..."
-                    />
-                    <button id="send">Send</button>
-                </div>
+                <input id="question" type="text" placeholder="Posez votre question ici..." />
+                <button id="send">Send</button>
             </div>
         </div>
-        <script src="script.js" /></script>
-    </body>
+    </div>
+    <script src="script.js">
+    </script>
+</body>
+
 </html>
