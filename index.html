@@ -4,7 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>ProgramMaster</title>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="stylesheet.css" />
+        
     </head>
     <body>
         <div class="sidebar">
@@ -27,18 +28,21 @@
             </div>
             <div class="new-chat">New Chat</div>
         </div>
-
         <div class="chat-container">
-            <div class="chat-box">
+        	<div class="chat">
+        	</div>
+            <div class="input-box">
                 <h1>Posez votre question</h1>
                 <div class="input-bar">
                     <input
+                    	id="question"
                         type="text"
                         placeholder="Posez votre question ici..."
                     />
-                    <button>Send</button>
+                    <button id="send">Send</button>
                 </div>
             </div>
         </div>
+        <script src="script.js" /></script>
     </body>
 </html>
