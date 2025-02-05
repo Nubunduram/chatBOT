@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,27 +7,38 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <section class="sidebar">
-            <h1>ProgramMaster</h1>
-            <div class="folders">
-                <div>📁 Work chats</div>
-                <div>📁 Life chats</div>
-                <div>📁 Projects chats</div>
-                <div>📁 Clients chats</div>
+        <div class="sidebar">
+            <h2>ProgramMaster</h2>
+            <div class="language-selector">
+                <h3>Choisissez une catégorie</h3>
+                <select>
+                    <option>Frontend</option>
+                    <option>Backend</option>
+                    <option>Data Science</option>
+                </select>
+                <h3>Choisissez un langage</h3>
+                <select>
+                    <option>Python</option>
+                    <option>JavaScript</option>
+                    <option>PHP</option>
+                    <option>Java</option>
+                    <option>C++</option>
+                </select>
             </div>
-
             <div class="new-chat">New Chat</div>
-        </section>
+        </div>
 
-        <section class="chat-container">
+        <div class="chat-container">
             <div class="chat-box">
-                <h2>How can I help you today?</h2>
+                <h1>Posez votre question</h1>
                 <div class="input-bar">
-                    <input type="text" placeholder="Type your prompt here..." />
+                    <input
+                        type="text"
+                        placeholder="Posez votre question ici..."
+                    />
                     <button>Send</button>
                 </div>
             </div>
-        </section>
+        </div>
     </body>
-    <script src="script.js"></script>
 </html>

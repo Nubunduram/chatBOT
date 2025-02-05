@@ -4,7 +4,7 @@ body {
     color: white;
     display: flex;
     height: 100vh;
-    margin: 30px;
+    margin: 0;
 }
 
 /* Sidebar */
@@ -14,6 +14,7 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
+    margin: 10px;
     border-radius: 10px;
 }
 
@@ -30,7 +31,7 @@ body {
 .chats div {
     background: #262626;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin: 5px 0;
     cursor: pointer;
 }
@@ -48,8 +49,30 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
 .new-chat:hover {
     background: #008000;
+}
+
+/* Language Selectors */
+.language-selector {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+select {
+    background: #262626;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+select:hover {
+    background: #333;
 }
 
 /* Main Chat Area */
@@ -73,24 +96,6 @@ body {
     font-size: 20px;
 }
 
-.options {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.option {
-    background: #262626;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.option:hover {
-    background: #333;
-}
-
 /* Input Bar */
 .input-bar {
     display: flex;
@@ -111,10 +116,14 @@ body {
 }
 
 .input-bar button {
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
     background: #00a000;
     color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 90px;
+    cursor: pointer;
+}
+
+.input-bar button:hover {
+    background: #008000;
 }
