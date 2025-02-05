@@ -79,23 +79,39 @@ select:hover {
 .chat-container {
     flex: 1;
     display: flex;
+    gap:10px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
-
+.chat {
+	min-width: 50%;
+	display: flex;
+	flex-direction: column;
+	gap:10px;
+}
 .chat-box {
     background: #1a1a1a;
+    margin-top: ;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+}
+.chat-box h1 {
+    font-size: 20px;
+}
+
+.input-box {
+    background: #1a1a1a;
+    margin-top: ;
     padding: 20px;
     border-radius: 10px;
     width: 50%;
 }
 
-.chat-box h1 {
+.input-box h1 {
     font-size: 20px;
 }
-
 /* Input Bar */
 .input-bar {
     display: flex;
