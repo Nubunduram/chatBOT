@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #0d0d0d;
+    color: white;
+    display: flex;
+    height: 100vh;
+    margin: 30px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 300px;
+    background: #1a1a1a;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.sidebar h2 {
+    color: white;
+}
+
+.folders,
+.chats {
+    margin-top: 20px;
+}
+
+.folders div,
+.chats div {
+    background: #262626;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.folders div:hover,
+.chats div:hover {
+    background: #333;
+}
+
+.new-chat {
+    margin-top: auto;
+    background: #00a000;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.new-chat:hover {
+    background: #008000;
+}
+
+/* Main Chat Area */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.chat-box {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+}
+
+.chat-box h1 {
+    font-size: 20px;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.option {
+    background: #262626;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #333;
+}
+
+/* Input Bar */
+.input-bar {
+    display: flex;
+    align-items: center;
+    background: #262626;
+    padding: 10px;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+.input-bar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 10px;
+}
+
+.input-bar button {
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #00a000;
+    color: white;
+}
