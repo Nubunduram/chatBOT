@@ -1,4 +1,4 @@
-const apiKey = 'hmmmmmmmm'; // Replace with your OpenAI API key
+const apiKey = 'hmmmm'; // Replace with your OpenAI API key
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
 async function getOpenAIResponse(prompt) {
@@ -48,3 +48,23 @@ send.addEventListener("click", function() {
         </div>
     `
 })
+
+
+var list = [
+//Tout les messages autos seront ici
+]
+
+document.getElementById('userInput').addEventListener('input', function() {
+    var userInput = document.getElementById('userInput').value.toLowerCase();
+    let divs = document.querySelectorAll('.prompt');
+
+    divs.forEach(function(prompt) {
+        var title = card.querySelector('.title').textContent.toLowerCase();
+
+        if (category.includes(userInput) || userInput>=parseInt(price.replace(/\D/g, ''), 10) || userInput === '') {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
