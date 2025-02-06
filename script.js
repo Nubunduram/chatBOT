@@ -50,11 +50,17 @@ async function getOpenAIResponse(prompt) {
 
 let element = document.querySelector(".chat");
 
+function handleMarkdown(output) {
+    return marked.parse(output, {
+        breaks: true,
+    });
+}
+
 function msg(result, videos) {
     console.log(videos)
     element.innerHTML += `
         <div class="chat-box-result">
-            <p>${result}</p>
+            ${handleMarkdown(result)}
             <div class="youtube-tutorials">
                 <h3>Related YouTube Tutorials:</h3>
                 ${videos.map(video => `
