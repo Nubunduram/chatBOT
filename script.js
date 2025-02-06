@@ -29,7 +29,7 @@ async function getOpenAIResponse(prompt) {
 let element = document.querySelector(".chat");
 function msg(result){
     element.innerHTML += `
-        <div class="chat-box">
+        <div class="chat-box-result">
             <p>${result}<p>
         </div>
     `
@@ -56,7 +56,7 @@ Voici la question de l'utilisateur : ${question}
         }
 })();
     element.innerHTML+=`
-        <div class="chat-box">
+        <div class="chat-box-response">
             <p>${question}<p>
         </div>
     `
