@@ -9,7 +9,6 @@ body {
 
 /* Sidebar */
 .sidebar {
-    width: 300px;
     background: #1a1a1a;
     padding: 20px;
     display: flex;
@@ -79,35 +78,53 @@ select:hover {
 .chat-container {
     flex: 1;
     display: flex;
-    gap: 10px;
+    gap: 50px;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
 }
-
 .chat {
     min-width: 50%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+    overflow: scroll;
+    scrollbar-color: #4d4d4d #1a1a1a;
+    scrollbar-width: thin;
+    overflow-x: hidden;
 }
-
-.chat-box {
+.chat-box-response {
     background: #1a1a1a;
-    margin-top: 0;
+    margin-top: 1px;
     padding: 20px;
     border-radius: 10px;
     width: 50%;
+    max-width: 40%;
+    margin-left: 300px;
+}
+.chat-box h1 {
+    font-size: 20px;
 }
 
+.chat-box-result {
+    background: #3f3f3f;
+    margin-top: 1px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 40%;
+    margin-right: 300px;
+}
 .chat-box h1 {
     font-size: 20px;
 }
 
 .input-box {
     background: #1a1a1a;
-    margin-top: 0;
     padding: 20px;
+    margin-bottom: 10px;
     border-radius: 10px;
     width: 50%;
 }
@@ -115,7 +132,6 @@ select:hover {
 .input-box h1 {
     font-size: 20px;
 }
-
 /* Input Bar */
 .input-bar {
     display: flex;
