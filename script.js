@@ -1,4 +1,4 @@
-const apiKey = 'xxx'; // Replace with your OpenAI API key
+const apiKey = ''; // Replace with your OpenAI API key
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
 const categorySelect = document.getElementById("category");
@@ -66,24 +66,10 @@ Voici la question de l'utilisateur : ${question}
 var list = [
 //Tout les messages autos seront ici
 ]
-
-document.getElementById('userInput').addEventListener('input', function() {
-    var userInput = document.getElementById('userInput').value.toLowerCase();
-    let divs = document.querySelectorAll('.prompt');
-
-    divs.forEach(function(prompt) {
-        var title = card.querySelector('.title').textContent.toLowerCase();
-
-        if (category.includes(userInput) || userInput>=parseInt(price.replace(/\D/g, ''), 10) || userInput === '') {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
+document.getElementById('new').addEventListener('click', function() {
+    element.innerHTML="";
 });
 
-
-// Gestions des selects
 document.addEventListener("DOMContentLoaded", () => {
 
 
