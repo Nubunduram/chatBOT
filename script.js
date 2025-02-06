@@ -1,8 +1,30 @@
 const apiKey = ''; // Replace with your OpenAI API key
+const YOUTUBE_API_KEY = "";
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
-
 const categorySelect = document.getElementById("category");
 const languageSelect = document.getElementById("language");
+
+async function fetchYouTubeVideos(query) {
+    try {
+        const response = await axios.get("https://www.googleapis.com/youtube/v3/search", {
+            params: {
+                part: "snippet",
+                q: query + " tutorial",
+                key: YOUTUBE_API_KEY,
+                maxResults: 3,
+                type: "video"
+            }
+        });
+
+        return response.data.items.map(item => ({
+            title: item.snippet.title,
+            url: `https://www.youtube.com/watch?v=${item.id.videoId}`
+        }));
+    } catch (error) {
+        console.error("YouTube API Error:", error.response ? error.response.data : error.message);
+        return [];
+    }
+}
 
 async function getOpenAIResponse(prompt) {
     const response = await fetch(apiUrl, {
@@ -27,15 +49,25 @@ async function getOpenAIResponse(prompt) {
 }
 
 let element = document.querySelector(".chat");
-function msg(result){
+
+function msg(result, videos) {
     element.innerHTML += `
         <div class="chat-box-result">
-            <p>${result}<p>
+            <p>${result}</p>
+            <div class="youtube-tutorials">
+                <h3>Related YouTube Tutorials:</h3>
+                ${videos.map(video => `
+                    <div class="tutorial-link">
+                        <a href="${video.url}" target="_blank">${video.title}</a>
+                    </div>
+                `).join('')}
+            </div>
         </div>
-    `
+    `;
 }
+
 let send = document.getElementById("send");
-send.addEventListener("click", function() {
+send.addEventListener("click", async function() {
     let userLanguage = languageSelect.value;
     let question = document.getElementById("question").value;
     const prompt = `
@@ -47,36 +79,30 @@ Toujours adapter ta réponse en fonction du langage sélectionné (${userLanguag
 
 Voici la question de l'utilisateur : ${question}
 `;
-    (async () => {
-        try {
-            const result = await getOpenAIResponse(prompt);
-            msg(result);
-        } catch (error) {
-            console.error('Error:', error);
-        }
-})();
-    element.innerHTML+=`
+    try {
+        const result = await getOpenAIResponse(prompt);
+        const videos = await fetchYouTubeVideos(`${userLanguage} ${question}`);
+        msg(result, videos);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+
+    element.innerHTML += `
         <div class="chat-box-response">
-            <p>${question}<p>
+            <p>${question}</p>
         </div>
-    `
-})
+    `;
+});
 
-
-var list = [
-//Tout les messages autos seront ici
-]
 document.getElementById('new').addEventListener('click', function() {
     element.innerHTML="";
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-
-
     const languagesByCategory = {
         frontend: ["HTML", "CSS", "JavaScript", "React", "Vue.js"],
-        backend: ["Node.js", "PHP", "Java", "Python", "Ruby"],
-        datascience: ["Python", "R", "SQL", "Julia"]
+        backend: ["Node.js", "PHP", "Java", "Python", "Ruby", "Rust"],
+        datascience: ["Python", "R", "SQL", "Julia", "Matlab"]
     };
 
     function updateLanguages() {
@@ -101,3 +127,4 @@ document.addEventListener("DOMContentLoaded", () => {
     categorySelect.addEventListener("change", updateLanguages);
     updateLanguages(); // Initialiser avec la première catégorie
 });
+
