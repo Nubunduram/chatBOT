@@ -163,3 +163,45 @@ select:hover {
 .input-bar button:hover {
     background: #008000;
 }
+
+.chat-box-result h1,
+.chat-box-result h2,
+.chat-box-result h3,
+.chat-box-result h4,
+.chat-box-result h5,
+.chat-box-result h6 {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.chat-box-result h1 {
+    font-size: 24px;
+    color: white;
+}
+
+.chat-box-result h2 {
+    font-size: 20px;
+    color: white;
+}
+
+.chat-box-result h3 {
+    font-size: 18px;
+    color: white;
+}
+
+.chat-box-result p {
+    line-height: 1.5;
+}
+
+.chat-box-result a {
+    color: white;
+}
+
+.chat-box-result pre {
+    background: #272822;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
