@@ -42,7 +42,7 @@ body {
 
 .new-chat {
     margin-top: auto;
-    background: #00a000;
+    background: #4e00a0;
     padding: 10px;
     text-align: center;
     border-radius: 5px;
@@ -50,7 +50,7 @@ body {
 }
 
 .new-chat:hover {
-    background: #008000;
+    background: #5e269a;
 }
 
 /* Language Selectors */
@@ -152,7 +152,7 @@ select:hover {
 }
 
 .input-bar button {
-    background: #00a000;
+    background: #4e00a0;
     color: white;
     border: none;
     padding: 10px;
