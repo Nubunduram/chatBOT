@@ -1,5 +1,5 @@
-const apiKey = ''; // Replace with your OpenAI API key
-const YOUTUBE_API_KEY = "";
+const apiKey = 'f648fez86f4e8zq4f86es4q86fe468q4f86eq48f6qes48 :)';
+const YOUTUBE_API_KEY = "fezafe6f4eq864fwd86d :)";
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 const categorySelect = document.getElementById("category");
 const languageSelect = document.getElementById("language");
@@ -51,6 +51,7 @@ async function getOpenAIResponse(prompt) {
 let element = document.querySelector(".chat");
 
 function msg(result, videos) {
+    console.log(videos)
     element.innerHTML += `
         <div class="chat-box-result">
             <p>${result}</p>
@@ -62,12 +63,15 @@ function msg(result, videos) {
                     </div>
                 `).join('')}
             </div>
+            ${videos.length > 0 ? `
+                <iframe width="420" height="315" src="https://www.youtube.com/embed/${videos[0].url.split('v=')[1]}" frameborder="0" allowfullscreen></iframe>
+            ` : ''}
         </div>
     `;
 }
 
 let send = document.getElementById("send");
-send.addEventListener("click", async function() {
+send.addEventListener("click", async function () {
     let userLanguage = languageSelect.value;
     let question = document.getElementById("question").value;
     const prompt = `
@@ -94,8 +98,8 @@ Voici la question de l'utilisateur : ${question}
     `;
 });
 
-document.getElementById('new').addEventListener('click', function() {
-    element.innerHTML="";
+document.getElementById('new').addEventListener('click', function () {
+    element.innerHTML = "";
 });
 
 document.addEventListener("DOMContentLoaded", () => {
