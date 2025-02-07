@@ -270,3 +270,16 @@ form {
         box-shadow: 0 2.5em 0 0
     }
 }
+
+.button-log {
+    background: #4e00a0;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.button-log:hover {
+    background: #5b05b7;
+}
