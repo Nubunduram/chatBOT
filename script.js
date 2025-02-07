@@ -76,15 +76,22 @@ function msg(result, videos) {
     `;
 }
 
-let send = document.getElementById("send");
-send.addEventListener("click", async function () {
+let form = document.getElementById("form");
+
+send.addEventListener("click", async function (event) {
+    event.preventDefault();
+
     let userLanguage = languageSelect.value;
     let question = document.getElementById("question").value;
+
     element.innerHTML += `
         <div class="chat-box-response">
             <p>${question}</p>
         </div>
     `;
+
+    form.reset();
+    
     const prompt = `
 Tu es un professeur expert en ${userLanguage}, spécialisé dans l'enseignement aux débutants et aux développeurs intermédiaires. Ta mission est de répondre aux questions des utilisateurs de manière pédagogique, claire et précise.
 
