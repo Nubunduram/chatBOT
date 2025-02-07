@@ -1,5 +1,5 @@
-const apiKey = 'f648fez86f4e8zq4f86es4q86fe468q4f86eq48f6qes48 :)';
-const YOUTUBE_API_KEY = "fezafe6f4eq864fwd86d :)";
+const apiKey = '';
+const YOUTUBE_API_KEY = "";
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 const categorySelect = document.getElementById("category");
 const languageSelect = document.getElementById("language");
@@ -70,7 +70,7 @@ function msg(result, videos) {
                 `).join('')}
             </div>
             ${videos.length > 0 ? `
-                <iframe width="420" height="315" src="https://www.youtube.com/embed/${videos[0].url.split('v=')[1]}" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/${videos[0].url.split('v=')[1]}" frameborder="0" allowfullscreen></iframe>
             ` : ''}
         </div>
     `;
@@ -80,6 +80,11 @@ let send = document.getElementById("send");
 send.addEventListener("click", async function () {
     let userLanguage = languageSelect.value;
     let question = document.getElementById("question").value;
+    element.innerHTML += `
+        <div class="chat-box-response">
+            <p>${question}</p>
+        </div>
+    `;
     const prompt = `
 Tu es un professeur expert en ${userLanguage}, spécialisé dans l'enseignement aux débutants et aux développeurs intermédiaires. Ta mission est de répondre aux questions des utilisateurs de manière pédagogique, claire et précise.
 
@@ -97,11 +102,7 @@ Voici la question de l'utilisateur : ${question}
         console.error('Error:', error);
     }
 
-    element.innerHTML += `
-        <div class="chat-box-response">
-            <p>${question}</p>
-        </div>
-    `;
+
 });
 
 document.getElementById('new').addEventListener('click', function () {
