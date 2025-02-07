@@ -81,6 +81,10 @@ let form = document.getElementById("form");
 send.addEventListener("click", async function (event) {
     event.preventDefault();
 
+    document.getElementById("send").style.display = "none";
+    document.getElementById("loader").style.display = "block";
+
+
     let userLanguage = languageSelect.value;
     let question = document.getElementById("question").value;
 
@@ -105,6 +109,8 @@ Voici la question de l'utilisateur : ${question}
         const result = await getOpenAIResponse(prompt);
         const videos = await fetchYouTubeVideos(`${userLanguage} ${question}`);
         msg(result, videos);
+        document.getElementById("send").style.display = "block";
+        document.getElementById("loader").style.display = "none";
     } catch (error) {
         console.error('Error:', error);
     }
@@ -145,4 +151,3 @@ document.addEventListener("DOMContentLoaded", () => {
     categorySelect.addEventListener("change", updateLanguages);
     updateLanguages(); // Initialiser avec la première catégorie
 });
-
