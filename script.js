@@ -4,6 +4,32 @@ const apiUrl = 'https://api.openai.com/v1/chat/completions';
 const categorySelect = document.getElementById("category");
 const languageSelect = document.getElementById("language");
 
+/** Logs */
+const logs = [];
+
+function addLog(message) {
+    const timestamp = new Date().toISOString();
+    logs.push(`[${timestamp}] ${message}`);
+}
+
+function downloadLogs() {
+    if (logs.length === 0) {
+        alert("Aucun log à télécharger.");
+        return;
+    }
+
+    let blob = new Blob([logs.join("\n")], { type: "text/plain" });
+    let link = document.createElement("a");
+
+    link.download = "logs.txt";
+    link.href = window.URL.createObjectURL(blob);
+    link.click();
+}
+
+document.getElementById("button-logs").addEventListener("click", function () {
+    downloadLogs();
+});
+
 async function fetchYouTubeVideos(query) {
     try {
         const response = await axios.get("https://www.googleapis.com/youtube/v3/search", {
@@ -16,6 +42,7 @@ async function fetchYouTubeVideos(query) {
             }
         });
 
+        addLog(`YouTube Request: ${query} - Status: ${response.status}`);
         return response.data.items.map(item => ({
             title: item.snippet.title,
             url: `https://www.youtube.com/watch?v=${item.id.videoId}`
@@ -45,6 +72,7 @@ async function getOpenAIResponse(prompt) {
     }
 
     const data = await response.json();
+    addLog(`OpenAI Request: ${prompt} - Status: ${response.status}`);
     return data.choices[0].message.content;
 }
 
